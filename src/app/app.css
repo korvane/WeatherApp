@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px auto;
+}
+app-compare {
+    display:flex;
+    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    border: 2px solid black;
+    border-radius: 10px;
+
+    width: 700px;      /* or whatever fits your content */
+    margin: 20px auto; 
+}
+
+app-current-weather {
+    padding: 30px;
+    border: 2px solid black;
+    border-radius: 10px;
+
+    margin: 20px auto;
+}

@@ -1,9 +1,10 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CurrentWeather } from "./current-weather/current-weather";
+import { Compare } from "./compare/compare";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [ CurrentWeather, Compare],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

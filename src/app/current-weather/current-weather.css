@@ -1,0 +1,20 @@
+h1 {
+    font-size : 150px;
+}
+h2 {
+    font-size : 100px;
+}
+h3 {
+    font-size: 20px;
+}
+.center {
+    /* column-gap: 6em; */
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.input {
+    border: 1px solid black; 
+    padding-right: 3px;
+    padding-left: 3px;
+}
