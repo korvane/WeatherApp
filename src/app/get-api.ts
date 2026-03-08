@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, Observable, of } from 'rxjs';
-import { error } from 'console';
+import { environment } from '../environment';
 
 @Injectable({
   providedIn: 'root',
@@ -15,11 +15,18 @@ export class GetApi {
   //input: City - name
   //returns: observable - (to be parsed)
   getFromAPI(city: string): Observable<any> {
-    let key = "823c0abcfb6c0e5ab8cbbab764f78353";
-      return this.http.get<any>(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${key}`).pipe(
-      catchError(error => {
-        console.error('API error:', error.message);
-        return of(-1);
+    let key = environment.API_KEY;
+      return this.http.get<any>(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${key}`)
+      .pipe(
+      catchError((error : HttpErrorResponse) => {
+        if(error.status == 404 || error.status == 400){
+          console.log('Type in a valid city!');
+          return of(-1);
+        } else {
+          console.log('API error.')
+          return of(-2);
+        }
+        
       })
     );
   }

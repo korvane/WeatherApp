@@ -18,7 +18,7 @@ export class CurrentWeather implements OnInit{
   tempHigh? : number;
   wind? : number;
 
-  @Input() identity! : string; //component identifier for to sessionStorage
+  @Input() identity! : string; //component identifier for compare.ts observers
     
 
   weatherSend = inject(Combine);
@@ -28,39 +28,40 @@ export class CurrentWeather implements OnInit{
   //input: city name
   searchCity(cityy : string) {
     this.rawWeather.getFromAPI(cityy).subscribe(data => {
-
-      if(data != -1) { 
-        //get data
-        this.city = data.name;
-        this.temperature = Math.round(data.main.temp);
-        this.description = data.weather[0].description;
-        this.feelsLike = Math.round(data.main.feels_like);
-        this.tempLow = Math.round(data.main.temp_min);
-        this.tempHigh = Math.round(data.main.temp_max);
-        this.wind = Math.round(data.wind.speed);
-
-        
-        //update weather for combine.ts
-        if(this.identity == "0") {
-          this.weatherSend.updateWeather0({
-            //identity : this.identity!,
-            city : this.city!,
-            temperature: this.temperature!,
-            wind : this.wind!
-          });
-        } else if(this.identity=="1"){
-          this.weatherSend.updateWeather1({
-            //identity : this.identity!,
-            city : this.city!,
-            temperature: this.temperature!,
-            wind : this.wind!
-          });
-        }
-
-        
+      if(data == -1){
+        return;
       }
-      else {
-        //error message
+
+
+      //get data
+      this.city = data.name;
+      this.temperature = Math.round(data.main.temp);
+      this.description = data.weather[0].description;
+      this.feelsLike = Math.round(data.main.feels_like);
+      this.tempLow = Math.round(data.main.temp_min);
+      this.tempHigh = Math.round(data.main.temp_max);
+      this.wind = Math.round(data.wind.speed);
+
+      
+      //update weather for combine.ts
+      if(this.identity == "0") {
+        this.weatherSend.updateWeather0({
+          //identity : this.identity!,
+          city : this.city!,
+          temperature: this.temperature!,
+          wind : this.wind!
+        });
+      } else if(this.identity=="1"){
+        this.weatherSend.updateWeather1({
+          //identity : this.identity!,
+          city : this.city!,
+          temperature: this.temperature!,
+          wind : this.wind!
+      });
+        
+      } else {
+        console.log("error.");
+        console.log(data);
       }
     })
   }
@@ -70,6 +71,5 @@ export class CurrentWeather implements OnInit{
   ngOnInit(): void {
     this.searchCity(this.city);
   }
-  
   
 }
