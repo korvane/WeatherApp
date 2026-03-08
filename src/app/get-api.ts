@@ -11,9 +11,11 @@ export class GetApi {
   //dataMap = new Map<String, String>();
   
 
-  //get parameters from api
-  //input: City - name
-  //returns: observable - (to be parsed)
+  /**
+   * Get parameters form API
+   * @param city City (or state or country) name
+   * @returns Observable to be parsed by current-weather.ts
+   */
   getFromAPI(city: string): Observable<any> {
     let key = environment.API_KEY;
       return this.http.get<any>(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${key}`)

@@ -25,15 +25,20 @@ export class CurrentWeather implements OnInit{
   rawWeather = inject(GetApi);
   platformID = inject(PLATFORM_ID);
 
-  //input: city name
+  /**
+   * get raw data from API's observable
+   * @param cityy city name
+   */
   searchCity(cityy : string) {
     this.rawWeather.getFromAPI(cityy).subscribe(data => {
-      if(data == -1){
+      if(data == -1 || data == -2){
         return;
       }
 
 
-      //get data
+      //get data / update html 
+      // (Angular's faulty change detection causes HTML text to 
+      // update after a second button press due to there being two current-weather.ts instances.)
       this.city = data.name;
       this.temperature = Math.round(data.main.temp);
       this.description = data.weather[0].description;
@@ -42,18 +47,17 @@ export class CurrentWeather implements OnInit{
       this.tempHigh = Math.round(data.main.temp_max);
       this.wind = Math.round(data.wind.speed);
 
+
       
-      //update weather for combine.ts
+      //update weather observable in combine.ts
       if(this.identity == "0") {
         this.weatherSend.updateWeather0({
-          //identity : this.identity!,
           city : this.city!,
           temperature: this.temperature!,
           wind : this.wind!
         });
       } else if(this.identity=="1"){
         this.weatherSend.updateWeather1({
-          //identity : this.identity!,
           city : this.city!,
           temperature: this.temperature!,
           wind : this.wind!
@@ -66,8 +70,9 @@ export class CurrentWeather implements OnInit{
     })
   }
 
-
-  //initialize program with milwaukee
+  /**
+   * initialize program with milwaukee
+   */
   ngOnInit(): void {
     this.searchCity(this.city);
   }
