@@ -3,6 +3,16 @@
     justify-content: space-around;
     margin: 20px auto;
 }
+
+
+app-current-weather {
+    padding: 30px;
+    border: 2px solid black;
+    border-radius: 10px;
+
+    margin: 20px auto;
+}
+
 app-compare {
     display:flex;
     
@@ -15,12 +25,5 @@ app-compare {
 
     width: 700px;      /* or whatever fits your content */
     margin: 20px auto; 
-}
-
-app-current-weather {
-    padding: 30px;
-    border: 2px solid black;
-    border-radius: 10px;
-
-    margin: 20px auto;
+    gap: 5px;
 }

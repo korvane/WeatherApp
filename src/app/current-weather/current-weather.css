@@ -1,8 +1,8 @@
 h1 {
-    font-size : 150px;
+    font-size : 100px;
 }
 h2 {
-    font-size : 100px;
+    font-size : 80px;
 }
 h3 {
     font-size: 20px;
@@ -17,4 +17,5 @@ h3 {
     border: 1px solid black; 
     padding-right: 3px;
     padding-left: 3px;
+    border-radius: 4px;
 }

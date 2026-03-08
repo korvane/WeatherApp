@@ -58,7 +58,7 @@ export class Compare implements OnInit{
       this.windComparison = this.weather0.city + " is windier than " + this.weather1.city + ".";
     }
     else if(windDiff < 0) {
-      this.windComparison = this.weather0.city + " is less windy than " + this.weather1.city + ".";
+      this.windComparison = this.weather1.city + " is windier than " + this.weather0.city + ".";
     }
     else {
       this.windComparison = this.weather0.city + " is just as windy as " + this.weather1.city +".";

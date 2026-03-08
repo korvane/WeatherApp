@@ -48,7 +48,7 @@ export class CurrentWeather implements OnInit{
             temperature: this.temperature!,
             wind : this.wind!
           });
-        } else {
+        } else if(this.identity=="1"){
           this.weatherSend.updateWeather1({
             //identity : this.identity!,
             city : this.city!,
