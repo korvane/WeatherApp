@@ -24,6 +24,6 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
     5. delete the import at the top of the file (line 4)
 
 # COMING SOON:
-    - A UI indicator for an incorrect input (Only a message is printed to the console)
+    - A UI indicator for an incorrect input (Currently, only a message is printed to the console and the bad input is ignored)
     - Icons for the weather descriptions
     - A "more" tab which displays misc. weather information (humidity, pressure, etc)
