@@ -16,3 +16,7 @@ To use this program, remember to insert your own API key. to retrieve the correc
     2. Login/create an account
     3. navigate to your name in the top right corner -> my Keys
     4. paste in your key at get-api.ts (line 20)
+
+COMING SOON:
+    - Icons for the weather descriptions
+    - A "more" tab which displays misc. weather information
