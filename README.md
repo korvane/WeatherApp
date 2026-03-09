@@ -13,7 +13,7 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 
 # HOW TO CLONE:
     1. clone repository
-    2. in terminal: npm install
+    2. in the integrated terminal: npm install
 
 # RETRIEVE API KEY:
     To use this program, you must insert your own API key. 
