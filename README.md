@@ -19,4 +19,4 @@ To use this program, remember to insert your own API key. to retrieve the correc
 
 COMING SOON:
     - Icons for the weather descriptions
-    - A "more" tab which displays misc. weather information
+    - A "more" tab which displays misc. weather information (humidity, pressure, etc)
