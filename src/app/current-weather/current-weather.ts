@@ -17,6 +17,7 @@ export class CurrentWeather implements OnInit{
   tempLow? : number;
   tempHigh? : number;
   wind? : number;
+  placeholder : string = "enter city/state/country";
 
   @Input() identity! : string; //component identifier for compare.ts observers
     
