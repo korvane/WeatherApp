@@ -27,3 +27,7 @@ app-compare {
     margin: 20px auto; 
     gap: 5px;
 }
+
+.body {
+    background: linear-gradient(cyan, white);
+}
