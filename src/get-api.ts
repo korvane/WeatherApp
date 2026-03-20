@@ -32,4 +32,8 @@ export class GetApi {
       })
     );
   }
+
+  // getRandom(): Observable<any> {
+
+  // }
 }

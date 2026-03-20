@@ -4,7 +4,7 @@ import { GetApi } from '../../get-api';
 
 @Component({
   selector: 'app-current-weather',
-  imports: [GetApi],
+  imports: [],
   templateUrl: './current-weather.html',
   styleUrl: './current-weather.css',
 })
