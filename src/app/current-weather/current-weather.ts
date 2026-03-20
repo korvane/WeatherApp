@@ -1,6 +1,8 @@
 import { Component, inject, Input, input, OnInit, PLATFORM_ID } from '@angular/core';
 import { Combine } from '../combine';
 import { GetApi } from '../../get-api';
+import { City } from 'country-state-city';
+
 
 @Component({
   selector: 'app-current-weather',
@@ -30,9 +32,12 @@ export class CurrentWeather implements OnInit{
    * get raw data from API's observable
    * @param cityy city name
    */
-  searchCity(cityy : string) {
+  searchCity(cityy : string, callback?: (valid:boolean) => void): void{
     this.rawWeather.getFromAPI(cityy).subscribe(data => {
       if(data == -1 || data == -2){
+        if (callback) {
+          callback(false);
+        }
         return;
       }
 
@@ -47,6 +52,7 @@ export class CurrentWeather implements OnInit{
       this.tempLow = Math.round(data.main.temp_min);
       this.tempHigh = Math.round(data.main.temp_max);
       this.wind = Math.round(data.wind.speed);
+
 
 
       
@@ -68,7 +74,24 @@ export class CurrentWeather implements OnInit{
         console.log("error.");
         console.log(data);
       }
+
+      if (callback) {
+        callback(true);
+      }
+
     })
+  }
+
+
+  searchRandom(): void{
+    let allCities = City.getAllCities();
+    let loc = allCities[Math.floor(Math.random()*allCities.length)].name;
+    console.log(loc);
+    this.searchCity(loc, (valid) => {
+      if(!valid) {
+        this.searchRandom();
+      }
+    });
   }
 
   /**
