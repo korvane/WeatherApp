@@ -2,7 +2,6 @@ import { inject, Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, Observable, of } from 'rxjs';
 import { API_KEY } from './environment/environment';
-import { City } from 'country-state-city';
 
 @Injectable({
   providedIn: 'root',

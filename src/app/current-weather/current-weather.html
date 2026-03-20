@@ -1,7 +1,7 @@
 <div>
     <div>
-        <input id="textbox" class="input" #[cityInput] [placeholder]="placeholder" >
-        <button class="input" (click)="searchCity(cityInput)">Search</button>
+        <input id="textbox" class="input" #cityInput [placeholder]="placeholder" >
+        <button class="input" (click)="searchCity(cityInput.value)">Search</button>
     </div>
 
     <h1>{{ temperature }} °F</h1>
