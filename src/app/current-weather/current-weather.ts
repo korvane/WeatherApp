@@ -1,10 +1,10 @@
 import { Component, inject, Input, input, OnInit, PLATFORM_ID } from '@angular/core';
-import { GetApi } from '../get-api';
 import { Combine } from '../combine';
+import { GetApi } from '../../get-api';
 
 @Component({
   selector: 'app-current-weather',
-  imports: [],
+  imports: [GetApi],
   templateUrl: './current-weather.html',
   styleUrl: './current-weather.css',
 })
