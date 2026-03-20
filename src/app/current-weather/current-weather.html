@@ -2,6 +2,7 @@
     <div>
         <input id="textbox" class="input" #cityInput [placeholder]="placeholder" >
         <button class="input" (click)="searchCity(cityInput.value)">Search</button>
+        <button class="input" (click)="searchRandom()">Randomize</button>
     </div>
 
     <h1>{{ temperature }} °F</h1>
