@@ -6,11 +6,6 @@ This program also compares the weather of two separate locations.
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.4.
 
 
-# KNOWN ISSUES:
- * variables don't update after the first button press - Change detection
-    - Angular's faulty change detection causes HTML text to update after a second button press due to there being two current-weather.ts instances.
-    - > With any two button presses after a change in input, the HTML corresponding with the first button will update.
-
 # HOW TO CLONE:
     1. clone repository
     2. in the integrated terminal: npm install

@@ -1,4 +1,4 @@
-import { Component, inject, Input, input, OnInit, PLATFORM_ID } from '@angular/core';
+import { Component, inject, Input, ChangeDetectorRef, OnInit, PLATFORM_ID } from '@angular/core';
 import { Combine } from '../combine';
 import { GetApi } from '../../get-api';
 import { City } from 'country-state-city';
@@ -23,6 +23,8 @@ export class CurrentWeather implements OnInit{
 
   @Input() identity! : string; //component identifier for compare.ts observers
     
+  constructor(private cdr: ChangeDetectorRef) {}
+
 
   weatherSend = inject(Combine);
   rawWeather = inject(GetApi);
@@ -45,6 +47,7 @@ export class CurrentWeather implements OnInit{
       //get data / update html 
       // (Angular's faulty change detection causes HTML text to 
       // update after a second button press due to there being two current-weather.ts instances.)
+      //Fixed at line 81
       this.city = data.name;
       this.temperature = Math.round(data.main.temp);
       this.description = data.weather[0].description;
@@ -73,13 +76,16 @@ export class CurrentWeather implements OnInit{
       } else {
         console.log("error.");
         console.log(data);
-      }
+      }      
+      
+      this.cdr.markForCheck(); //manually refresh for Angular detection change
 
       if (callback) {
         callback(true);
       }
 
     })
+    
   }
 
 

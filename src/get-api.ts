@@ -8,7 +8,6 @@ import { API_KEY } from './environment/environment';
 })
 export class GetApi {
   http = inject(HttpClient);
-  //dataMap = new Map<String, String>();
   
 
   /**
@@ -32,5 +31,5 @@ export class GetApi {
       })
     );
   }
-  
+
 }
