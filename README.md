@@ -14,6 +14,7 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 # HOW TO CLONE:
     1. clone repository
     2. in the integrated terminal: npm install
+    3. in the integrated terminal: npm install country-state-city
     3. in the integrated terminal: ng serve --open
 
 # RETRIEVE API KEY:
